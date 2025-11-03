@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Keyword Highlighter",
+  "version": "1.0",
+  "description": "Predefined words/phrases auto-highlight on every webpage. (বাংলা মন্তব্যসহ)",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Keyword Highlighter"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
